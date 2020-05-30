@@ -1,11 +1,14 @@
 const express = require('express');
 var bodyParser = require('body-parser');
-const port = 3000;
+var cookieParser = require('cookie-parser')
 
 let userRoute = require('./routes/user.route');
+const port = 3000;
 const app = express();
 
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
 app.set('view engine', 'pug');
 app.set('views', './views');
 
